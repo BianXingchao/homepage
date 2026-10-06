@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<!-- 这是一个文档类型声明，用来告知浏览器这是一个HTML5文档。它应该放在HTML文档的最顶部。 -->
+<html class="no-js" lang="en">
+
+<!-- 标签包含了文档的元数据（metadata），如文档的标题、字符编码、样式表、脚本等。 -->
+<head>
+
+    <!--- basic page needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <title>Xingchao Personal Homepage</title>
+    <meta name="description" content="Bian Xingchao (Xingchao Bian), Integrated M.S./Ph.D. candidate at Sungkyunkwan University (SKKU), working on microarchitecture security and processor interconnects.">
+    <meta name="author" content="Xingchao Bian">
+
+    <!-- mobile specific metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- HTML中，rel属性是relationship的缩写，用于描述当前文档与链接资源之间的关系。
+     具体来说，在不同的标签中，rel属性有不同的用途和意义 <link><a><area><form>-->
+    
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/vendor.css">
+
+    <!-- script 用来说明接下来的代码是关于脚本的。引入了一个外部JavaScript文件,
+    Modernizr 是一个JavaScript库，用于检测浏览器对HTML5和CSS3特性的支持情况，可以帮助开发者根据浏览器能力进行相应的处理。
+    ================================================== -->
+    <script src="js/modernizr.js"></script>
+
+    <!-- favicons
+    ================================================== -->
+    <link rel="apple-touch-icon" sizes="180x180" href="personal-picture.jpg">
+    <link rel="icon" type="image/jpeg" sizes="32x32" href="personal-picture-32x32.jpg">
+    <link rel="icon" type="image/jpeg" sizes="16x16" href="personal-picture-16x16.jpg">
+    <link rel="manifest" href="site.webmanifest"> <!-- Manifest文件用于描述网页应用的相关信息，如图标、启动URL、显示模式等。 -->
+
+        <!-- Custom styles
+    ================================================== -->
+    <style>
+        .header-nav a {
+            color: white;
+        }
+
+        .header-nav a:hover {
+            color: red; /* Change this to any color you prefer for the hover state */
+        }
+
+        /* 10rem 大于吸顶 header 的 8.8rem，导航跳转后标题不被遮住 */
+        .s-about__section:not(.s-about__section--profile) {
+            padding-top: 10rem;
+        }
+
+        .news-list li,
+        .pub-list li {
+            margin-bottom: 1.2rem;
+        }
+
+    </style>
+
+</head>
+
+<body id="top"> <!-- 指定了一个唯一的ID，通常用于页面顶部的锚点或其他用途。 -->
+    <!-- preloader 设置了一个加载动画（preloader）
+    ================================================== -->
+
+    <!-- div 是 "division"（区块或分区）的缩写。
+    在HTML中，<div> 元素是一个通用的容器元素，用于将文档中的内容分组，没有特定的语义意义。
+    <div> 元素通常与CSS和JavaScript结合使用，用来布局和样式化网页内容。 -->
+    <div id="preloader">
+        <div id="loader" class="dots-fade">
+            <!-- 这是预加载动画的容器，id="loader"用于唯一标识这个<div>元素，class="dots-fade"用于应用CSS样式。 -->
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+
+    <!-- header 用于定义文档或页面的头部内容，通常包含导航、标志等信息。
+     为<header>元素添加类名s-header，以便于在CSS中进行样式定义。
+    ================================================== -->
+    <header class="s-header">
+
+        <div class="header-logo">
+            <a href="index.html">
+                <img src="images/logo.jfif" alt="Homepage">
+            </a>
+        </div>
+
+        <!-- 包含头部内容的容器。 -->
+        <div class="header-content">
+
+            <!-- <nav> 是 "navigation"（导航）的缩写。在HTML中，<nav> 元素是一个语义化的标签，用于定义导航链接的容器。
+            它表示文档或页面中的一部分，这部分包含导航链接，例如网站的主要导航菜单。
+            使用 <nav> 标签有助于增强网页的语义性和可访问性，使搜索引擎和屏幕阅读器等工具能够更好地理解和使用网页内容。-->
+            <nav class="row header-nav-wrap">
+                <ul class="header-nav"> <!--无序列表，用于包含导航链接。-->
+                    <li><a class="smoothscroll" href="#hero" title="Hero">Home</a></li>
+                    <li><a class="smoothscroll" href="#about" title="About">About</a></li>
+                    <li><a class="smoothscroll" href="#news" title="News">News</a></li>
+                    <li><a class="smoothscroll" href="#publication" title="Publications">Publications</a></li>
+                    <li><a class="smoothscroll" href="#experience" title="Experience">Experience</a></li>
+                </ul>
+            </nav> <!-- end header-nav-wrap -->
+
+            <!-- <a> 标签用于定义超链接，href 属性指定链接的目标地址。 -->
+            <!-- href="#0"：链接的href属性通常用#0表示空链接或占位链接。 -->
+            <!-- <a href="Xingchao CV_En.pdf" class="btn btn--stroke btn--small" download="Xingchao_Bian_CV.pdf">Download CV</a> -->
+            <a href="Xingchao CV_En.pdf" class="btn btn--stroke btn--small">Download CV</a>
+
+        </div> <!-- end header-content -->
+
+        <a class="header-menu-toggle" href="#0"><span>Menu</span></a>
+
+    </header> 
+
+
+    <!-- hero
+    ================================================== -->
+    <section id="hero" class="s-hero target-section" data-parallax="scroll" data-image-src="images/bg-3000x2000.jpg" data-natural-width=3000 data-natural-height=2000 data-position-y=center>
+        
+        <div class="row hero-content" style="display: flex; justify-content: center; align-items: center; height: 100vh; text-align: center;">
+
+            <div class="column large-full">
+                <h1 style="color: #FFFFFF; font-weight: bold;">Bian Xingchao</h1>
+                <h2 style="color: #FFFFFF;">
+                I'm Bian Xingchao, an integrated M.S./Ph.D. candidate focusing on microarchitecture security at SKKU. <br>
+                <a href="#about" class="scroll-link" style="color: #8B0000;">Start scrolling</a> to find more information 
+                <a href="#about" class="scroll-link" style="color: #8B0000;">about me</a>.
+                </h2>
+
+                <ul class="hero-social" style="list-style: none; padding: 0; display: flex; justify-content: center; gap: 10px;">
+                    <li>
+                        <a href="mailto:bxc8802@g.skku.edu" title="Email">Email</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/BianXingchao" title="GitHub">GitHub</a>
+                    </li>
+                </ul> <!-- end hero-social -->
+
+            </div> 
+
+        </div> <!-- end hero-content -->
+
+        <div class="hero-scroll" style="text-align: center;">
+            <a href="#about" class="scroll-link smoothscroll">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 24l-8-9h6v-15h4v15h6z"/></svg>
+            </a>
+        </div> <!-- end hero-scroll -->
+
+    </section> <!-- end s-hero -->
+
+    <!-- about
+    ================================================== -->
+    <section id="about" class="s-about target-section">
+
+        <div class="s-about__section s-about__section--profile">
+
+            <div class="right-vert-line"></div>
+
+            <div class="row">
+                <div class="column large-6 medium-8 tab-full">
+
+                    <div class="section-hero" data-num="01" data-aos="fade-up">
+                        <h3 class="subhead">About Me</h3>
+                        <h1 class="display-1">I'm the kind of person who isn't afraid of challenges.</h1>
+                    </div>
+
+                    <div class="profile-pic" data-aos="fade-up">
+                        <img src="images/personal-picture.jpg"
+                             srcset="images/personal-picture.jpg 1x, images/personal-picture.jpg 2x" alt="Bian Xingchao">
+                    </div>
+
+                    <h3 data-aos="fade-up">Profile</h3>
+
+                    <p data-aos="fade-up">
+                    I am an Integrated M.S./Ph.D. candidate in Software-FinTech Convergence at Sungkyunkwan University (SKKU), Korea, working in the Computing Platforms Lab (CPL) with Prof. Hyungmin Cho.
+                    I specialize in microarchitecture and processor security; my research focuses on mesh interconnect security, side-channel attacks, and traffic-based vulnerability analysis on modern server and cloud platforms.
+                    </p>
+
+                    <h3 data-aos="fade-up">Research Interests</h3>
+
+                    <ul data-aos="fade-up">
+                        <li>Microarchitecture and processor security</li>
+                        <li>Processor interconnects, especially on-chip meshes of server and cloud processors</li>
+                        <li>Side-channel attacks and their detection</li>
+                        <li>Machine learning for security and data analysis</li>
+                    </ul>
+
+                    <h3 data-aos="fade-up">Contact Details</h3>
+
+                    <p data-aos="fade-up">
+                    Bian Xingchao<br>
+                    NATURAL SCIENCES CAMPUS: 85465, Computing Platforms Lab,
+                    2066, SEOBU-RO, JANGAN-GU, SUWON-SI, GYEONGGI-DO, KOREA.<br>
+                    Email: <a href="mailto:bxc8802@g.skku.edu">bxc8802@g.skku.edu</a>
+                    </p>
+                </div>
+            </div>
+
+        </div> <!-- end s-about__section--profile -->
+
+        <div id="news" class="s-about__section">
+
+            <div class="row">
+                <div class="column">
+                    <h3 data-aos="fade-up">News</h3>
+
+                    <ul class="news-list" data-aos="fade-up">
+                        <li><strong>Mar 2025</strong> &mdash; Paper on detecting cache-based side-channel attacks by monitoring mesh interconnect traffic published at ACM SAC 2025.</li>
+                        <li><strong>Dec 2020</strong> &mdash; Paper on unsupervised anomaly detection in time-series data published in the Journal of IKEEE.</li>
+                        <li><strong>Mar 2020</strong> &mdash; Joined the Computing Platforms Lab (CPL) at SKKU as a Ph.D. student.</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div> <!-- end news -->
+
+        <div id="publication" class="s-about__section">
+
+            <div class="row">
+                <div class="column">
+                    <h3 data-aos="fade-up">Publications</h3>
+
+                    <ol class="pub-list" data-aos="fade-up">
+                        <li>
+                        <strong>Xingchao Bian</strong> and Hyungmin Cho.
+                        <a href="https://doi.org/10.1145/3672608.3707857">Detecting Cache-based Side-Channel Attacks by Leveraging Mesh Interconnect Traffic Monitoring</a>.
+                        In <em>Proceedings of the 40th ACM/SIGAPP Symposium on Applied Computing (SAC '25)</em>, pp. 1829&ndash;1838, 2025.
+                        </li>
+                        <li>
+                        <strong>Xingchao Bian</strong>.
+                        <a href="https://doi.org/10.7471/ikeee.2020.24.4.1011">Detecting Anomalies in Time-Series Data using Unsupervised Learning and Analysis on Infrequent Signatures</a>.
+                        <em>Journal of IKEEE</em>, 24(4), pp. 1011&ndash;1016, 2020. (KCI)
+                        </li>
+                    </ol>
+                </div>
+            </div>
+
+        </div> <!-- end publication -->
+
+        <div class="s-about__section">
+
+            <div class="row">
+                <div class="column">
+                    <h3 data-aos="fade-up">Education</h3>
+                </div>
+            </div>
+
+            <div class="row block-large-1-2 block-900-full work-positions">
+
+                <div class="column" data-aos="fade-up">
+                    <div class="position">
+                        <div class="position__header">
+                            <h6>
+                                <span class="position__co">Sungkyunkwan University</span>
+                                <span class="position__pos">Integrated M.S./Ph.D. Program in Software-FinTech Convergence</span>
+                            </h6>
+                            <div class="position__timeframe">
+                                March 2020 - Present
+                            </div>
+                        </div>
+
+                        <p>
+                        Department of Software, College of Computing. My work focuses on microarchitecture security,
+                        especially the mesh interconnects of Intel and Arm server processors.
+                        I am advised by Prof. <a href="https://scholar.google.com/citations?user=wJDylfAAAAAJ&hl=ko&oi=ao" style="color: #3900ff;">Hyungmin Cho</a>
+                        at <a href="http://cpl.skku.edu/cplpage/" style="color: #3900ff;">CPL</a> (Computing Platforms Laboratory),
+                        <a href="https://www.skku.edu/skku/index.do" style="color: #3900ff;">SKKU</a>.
+                        </p>
+                    </div>
+                </div> <!-- end column -->
+
+                <div class="column" data-aos="fade-up">
+                    <div class="position">
+                        <div class="position__header">
+                            <h6>
+                                <span class="position__co">Inha University</span>
+                                <span class="position__pos">Bachelor of Engineering in Computer Science and Engineering</span>
+                            </h6>
+                            <div class="position__timeframe">
+                                February 2016 - February 2020
+                            </div>
+                        </div>
+
+                        <p>
+                        I worked on research projects at
+                        <a href="https://imc.hanyang.ac.kr/" style="color: #3900ff;">NSL</a> (Networked Systems Laboratory),
+                        <a href="https://www.inha.ac.kr/kr/index.do" style="color: #3900ff;">Inha</a> University,
+                        advised by Prof. <a href="https://scholar.google.com/citations?user=ThlLifsAAAAJ&hl=ko&oi=ao" style="color: #3900ff;">Youngtae Noh</a>.
+                        </p>
+                    </div>
+                </div> <!-- end column -->
+
+            </div> <!-- work positions -->
+
+        </div> <!-- end s-about__section -->
+
+        <div id="experience" class="s-about__section">
+
+            <div class="row">
+                <div class="column">
+                    <h3 data-aos="fade-up">Experience</h3>
+                </div>
+            </div>
+
+            <div class="row block-large-1-2 block-900-full work-positions">
+
+                <div class="column" data-aos="fade-up">
+                    <div class="position">
+                        <div class="position__header">
+                            <h6>
+                                <span class="position__co">SKKU Computing Platforms Laboratory</span>
+                                <span class="position__pos">Graduate Researcher</span>
+                            </h6>
+                            <div class="position__timeframe">
+                                March 2020 - Present
+                            </div>
+                        </div>
+
+                        <p>
+                        Research on mesh-interconnect architectures across modern server and cloud platforms, including
+                        Intel Xeon Scalable processors, Arm Graviton processors, Google Cloud, and Alibaba Cloud environments;
+                        security vulnerabilities in processor interconnect architectures; and traffic-monitoring analysis
+                        systems for mesh interconnects.
+                        </p>
+                    </div>
+                </div> <!-- end column -->
+
+                <div class="column" data-aos="fade-up">
+                    <div class="position">
+                        <div class="position__header">
+                            <h6>
+                                <span class="position__co">Sungkyunkwan University</span>
+                                <span class="position__pos">President, CSA (Natural Science Campus)</span>
+                            </h6>
+                            <div class="position__timeframe">
+                                September 2024 - February 2026
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- end column -->
+
+                <div class="column" data-aos="fade-up">
+                    <div class="position">
+                        <div class="position__header">
+                            <h6>
+                                <span class="position__co">EnF Advisor Co., Ltd.</span>
+                                <span class="position__pos">Data Analyst Intern</span>
+                            </h6>
+                            <div class="position__timeframe">
+                                August 2023 - February 2024, August - November 2024
+                            </div>
+                        </div>
+
+                        <p>
+                        Yeouido, Seoul. Participated in data analysis for the Yellow Umbrella Mutual Aid Association's
+                        financial estimation project, helped develop a results evaluation system for data-driven performance
+                        analysis, maintained NAS infrastructure (Synology DSM), and supported landing page development.
+                        </p>
+                    </div>
+                </div> <!-- end column -->
+
+                <div class="column" data-aos="fade-up">
+                    <div class="position">
+                        <div class="position__header">
+                            <h6>
+                                <span class="position__co">Inha University</span>
+                                <span class="position__pos">Undergraduate Research Intern, NSL</span>
+                            </h6>
+                            <div class="position__timeframe">
+                                February 2019 - August 2019
+                            </div>
+                        </div>
+
+                        <p>
+                        Worked on deep-learning-based emotion recognition and a portable, low-energy position tracker
+                        for finding missing children and elderly people, advised by Prof. Youngtae Noh.
+                        </p>
+                    </div>
+                </div> <!-- end column -->
+
+                <div class="column" data-aos="fade-up">
+                    <div class="position">
+                        <div class="position__header">
+                            <h6>
+                                <span class="position__co">Inha University</span>
+                                <span class="position__pos">Mentor, Inha Tutoring Program</span>
+                            </h6>
+                            <div class="position__timeframe">
+                                2018 - 2019
+                            </div>
+                        </div>
+
+                        <p>
+                        Selected by grade. Tutored Discrete Mathematics (Spring 2018) and
+                        Introduction to Computer Programming in Python (Fall 2018, Fall 2019).
+                        </p>
+                    </div>
+                </div> <!-- end column -->
+
+            </div> <!-- work positions -->
+
+        </div> <!-- end experience -->
+
+        <div class="s-about__section">
+
+            <div class="row">
+                <div class="column large-6 tab-full">
+                    <h3 data-aos="fade-up">Awards &amp; Honors</h3>
+
+                    <ul data-aos="fade-up">
+                        <li>International Scholarship, Inha University, 2016 (4 years)</li>
+                        <li>STEM Scholarship, Department of Software, SKKU Ph.D. Program, 2020 (6 years)</li>
+                        <li>9th place among 267 teams, HAICon 2020 Industrial Control System Security Threat Detection AI Competition</li>
+                        <li>Individual Award, SKKU Graduate School of Integrated Security Hackathon, 2021</li>
+                        <li>Third Prize, China-Korea College Student Debate Contest, Chinese Embassy in Korea</li>
+                    </ul>
+                </div>
+
+                <div class="column large-6 tab-full">
+                    <h3 data-aos="fade-up">Languages</h3>
+
+                    <ul data-aos="fade-up">
+                        <li>Chinese (native)</li>
+                        <li>Korean (TOPIK Level 6)</li>
+                        <li>English</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div> <!-- end awards & languages -->
+
+    </section> <!-- end s-about -->
+
+
+    <!-- footer
+    ================================================== -->
+    <footer class="s-footer h-dark-bg">
+        
+        <!-- <div class="right-vert-line"></div> -->
+
+        <div class="row s-footer__bottom">
+            <div class="column large-full ss-copyright">
+                <span>© 2026 Bian Xingchao</span>
+                <span>Design by <a href="https://www.styleshout.com/">StyleShout</a></span>
+            </div> <!-- end ss-copyright -->
+
+            <div class="ss-go-top">
+                <a class="smoothscroll" title="Back to Top" href="#top">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 0l8 9h-6v15h-4v-15h-6z"/></svg>
+                </a>
+            </div> <!-- end ss-go-top -->
+        </div> <!-- end s-footer__bottom -->
+
+    </footer> <!-- end s-footer -->
+
+
+    <!-- photoswipe background
+    ================================================== -->
+    <div aria-hidden="true" class="pswp" role="dialog" tabindex="-1">
+
+        <div class="pswp__bg"></div>
+        <div class="pswp__scroll-wrap">
+
+            <div class="pswp__container">
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+            </div>
+
+            <div class="pswp__ui pswp__ui--hidden">
+                <div class="pswp__top-bar">
+                    <div class="pswp__counter"></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button> <button class="pswp__button pswp__button--share" title=
+                    "Share"></button> <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button> <button class="pswp__button pswp__button--zoom" title=
+                    "Zoom in/out"></button>
+                    <div class="pswp__preloader">
+                        <div class="pswp__preloader__icn">
+                            <div class="pswp__preloader__cut">
+                                <div class="pswp__preloader__donut"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                    <div class="pswp__share-tooltip"></div>
+                </div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button> <button class="pswp__button pswp__button--arrow--right" title=
+                "Next (arrow right)"></button>
+                <div class="pswp__caption">
+                    <div class="pswp__caption__center"></div>
+                </div>
+            </div>
+
+        </div>
+
+    </div> <!-- end photoSwipe background -->
+
+
+    <!-- Java Script
+    ================================================== -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+</html>
